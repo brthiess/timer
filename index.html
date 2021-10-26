@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <script>
+      let t1 = performance.now();
+      function showTimeElapsedSinceLastPress() {
+        let t2 = performance.now();
+        let secondsElapsed = (t2 - t1) / 1000;
+        document.getElementById("time").textContent = Math.round(secondsElapsed * 100) / 100;
+        t1 = t2;
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+          height: 100%;
+      }
+      body {
+          height: 100%;
+      }
+      .time-container {
+        background: black;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .time {
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="time-container" onmousedown="showTimeElapsedSinceLastPress()">
+      <div id="time" class="time">0.00</div>
+    </div>
+  </body>
+</html>
